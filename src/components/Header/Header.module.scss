@@ -27,9 +27,13 @@
    &__right_price {
       margin-right: 10px;
       padding-right: 10px;
-      border-right: 1px solid rgb(35, 36, 35)
+      border-right: 1px solid rgb(35, 36, 35);
+      font-weight: 600;
+      font-size: 16px;
    }
    &__right_cart {
+      font-weight: 600;
+      font-size: 16px;
       display: flex;
       align-items: center;
    }
