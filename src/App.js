@@ -6,7 +6,6 @@ import Cards from './components/Body/Cards';
 import pizzas from './assets/pizza.json';
 
 const App = () => {
-
    return (
       <div className="wrapper">
          <div className="_container">
@@ -15,8 +14,9 @@ const App = () => {
                <Selection></Selection>
                <h1 style={{ marginBottom: '45px' }}>Наша піца</h1>
                <div className="body">
-                  {pizzas.map((obj) => (
+                  {pizzas.map((obj, id) => (
                      <Cards
+                        key={id}
                         imageUrl={obj.imageUrl}
                         price={obj.price}
                         title={obj.title}

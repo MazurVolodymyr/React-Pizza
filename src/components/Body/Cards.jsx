@@ -9,6 +9,14 @@ const Cards = (props) => {
    };
    //__________________________________________________________//
    const type = ['тонка', 'класична'];
+
+   //! цей стейт слугує що коли при натискані на кнопку вибору грубини піци кнопка стає активною(білою)
+   const [selectPizzaRude, setSelectPizzaRude] = React.useState(0);
+   //__________________________________________________________//
+
+   //! цей стейт слугує що коли при натискані на кнопку вибору розміру піци кнопка стає активною(білою)
+   const [selectPizzaSize, setSelectPizzaSize] = React.useState(0);
+   //__________________________________________________________//
    return (
       <div className={style.card}>
          <div>
@@ -18,12 +26,24 @@ const Cards = (props) => {
          <div className={style.card__btn}>
             <div className={style.card__btn_choose}>
                {props.types.map((val) => (
-                  <button>{type[val]}</button>
+                  <button
+                     key={val}
+                     onClick={() => setSelectPizzaRude(val)}
+                     className={selectPizzaRude === val ? style.active : ''}
+                  >
+                     {type[val]}
+                  </button>
                ))}
             </div>
             <div className={style.card__btn_size}>
-               {props.sizes.map((val) => (
-                  <button>{val} см</button>
+               {props.sizes.map((val, id) => (
+                  <button
+                     key={val}
+                     onClick={() => setSelectPizzaSize(id)}
+                     className={selectPizzaSize === id ? style.active : ''}
+                  >
+                     {val} см
+                  </button>
                ))}
             </div>
          </div>

@@ -1,0 +1,43 @@
+.sortt {
+   position: relative;
+   &__label {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+      b {
+         margin-right: 8px;
+         font-size: 17px;
+      }
+      span {
+         color: orange;
+         border-bottom: 1px dashed orange;
+         font-size: 17px;
+         cursor: pointer;
+      }
+   }
+
+   &__popup {
+      position: absolute;
+      right: 0;
+      margin-top: 15px;
+
+      ul {
+         overflow: hidden;
+         li {
+            padding: 12px 20px;
+            cursor: pointer;
+
+            &.active,
+            &:hover {
+               background: rgba(254, 95, 30, 0.05);
+            }
+
+            &.active {
+               font-weight: bold;
+               color: orange;
+            }
+         }
+      }
+   }
+}
