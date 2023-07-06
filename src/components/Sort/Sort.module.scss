@@ -1,12 +1,14 @@
 .sortt {
    position: relative;
    &__label {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: wrap;
 
       b {
          margin-right: 8px;
+         margin-bottom: 10px;
          font-size: 17px;
       }
       span {
