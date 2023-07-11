@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(191, 191, 191);
+  padding: 54px 70px 45px 70px;
+  margin-bottom: 40px;
+}
+.header a {
+  color: inherit;
+}
+.header__left {
+  display: flex;
+}
+.header__left_h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.header__left_p {
+  opacity: 0.9;
+  font-size: 16px;
+}
+.header__right {
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(250, 133, 60);
+  padding: 20px 30px;
+  color: white;
+}
+.header__right_price {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid rgb(35, 36, 35);
+  font-weight: 600;
+  font-size: 16px;
+}
+.header__right_cart {
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}

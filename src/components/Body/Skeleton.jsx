@@ -4,7 +4,7 @@ import style from './Cards.module.scss';
 
 const Skeleton = () => (
    <ContentLoader
-    className={style.card}
+      className={style.card}
       speed={3}
       width={280}
       height={500}

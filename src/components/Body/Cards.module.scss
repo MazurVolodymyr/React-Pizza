@@ -52,6 +52,19 @@
    .active {
       background-color: #ffffff;
    }
-   
 }
 
+// {props.items.map((obj, id) =>
+//    props.setLoading ? (
+//       <Skeleton />
+//    ) : (
+//       <Cards
+//          key={id}
+//          imageUrl={obj.imageUrl}
+//          price={obj.price}
+//          title={obj.title}
+//          sizes={obj.sizes}
+//          types={obj.types}
+//       />
+//    ),
+// )}

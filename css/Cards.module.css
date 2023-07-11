@@ -1,0 +1,51 @@
+.card {
+  width: 280px;
+  text-align: center;
+  margin-bottom: 100px;
+  margin-right: 15px;
+}
+.card__img {
+  width: 100%;
+  height: 100%;
+}
+.card__name {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.card__btn {
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.card__btn_choose button {
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px 30px;
+  font-size: 18px;
+  background-color: #e5e5e5;
+}
+.card__btn_size button {
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px 17px;
+  font-size: 17px;
+  background-color: #e5e5e5;
+}
+.card__price_plus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card__price_plus button {
+  border: 1px solid salmon;
+  background-color: inherit;
+  border-radius: 25px;
+  color: salmon;
+  padding: 8px 15px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.card .active {
+  background-color: #ffffff;
+}

@@ -1,0 +1,38 @@
+.sortt {
+  position: relative;
+}
+.sortt__label {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.sortt__label b {
+  margin-right: 8px;
+  font-size: 17px;
+}
+.sortt__label span {
+  color: orange;
+  border-bottom: 1px dashed orange;
+  font-size: 17px;
+  cursor: pointer;
+}
+.sortt__popup {
+  position: absolute;
+  right: 0;
+  margin-top: 15px;
+}
+.sortt__popup ul {
+  overflow: hidden;
+}
+.sortt__popup ul li {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+.sortt__popup ul li.active, .sortt__popup ul li:hover {
+  background: rgba(254, 95, 30, 0.05);
+}
+.sortt__popup ul li.active {
+  font-weight: bold;
+  color: orange;
+}
