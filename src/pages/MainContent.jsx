@@ -2,9 +2,13 @@ import Selection from '../components/SelectionOfPizza/Selection';
 import Cards from '../components/Body/Cards';
 import Skeleton from '../components/Body/Skeleton';
 const MainContent = (props) => {
+   const value = props.value;
+   const onClickCategory = props.onClickCategory;
+   const valueSort = props.valueSort
+   const onChangeSort = props.onChangeSort
    return (
       <>
-         <Selection></Selection>
+         <Selection value={value} onClickCategory={onClickCategory} valueSort={valueSort} onChangeSort={onChangeSort}></Selection>
          <h1 style={{ marginBottom: '45px' }}>Наша піца</h1>
          <div className="body">
             {props.isLoading

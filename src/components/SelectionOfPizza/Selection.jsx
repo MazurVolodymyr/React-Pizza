@@ -2,28 +2,25 @@ import style from './Selection.module.scss';
 import React from 'react';
 import Sort from '../Sort/Sort';
 
-const Selection = () => {
-   //! при кліку на любу категорію вона стає в позицію вибраної категорії
-   const [point, setPoint] = React.useState(0);
-   //__________________________________________________________//
-
+const Selection = (props) => {
    const categories = ['Всі', "М'ясні", 'Гриль', 'Гострі', 'Сирні'];
-
+   const valueSort = props.valueSort
+   const onChangeSort = props.onChangeSort
    return (
       <div className={style.flex_contain}>
          <ul>
-            {categories.map((value, id) => (
+            {categories.map((categoryName, id) => (
                <li
                   key={id}
-                  onClick={() => setPoint(id)}
-                  className={point === id ? style.active : ''}
+                  onClick={() => props.onClickCategory(id)}
+                  className={props.value === id ? style.active : ''}
                >
-                  {value}
+                  {categoryName}
                </li>
             ))}
          </ul>
          <div>
-            <Sort></Sort>
+            <Sort value={valueSort} onChangeSort={(i) => onChangeSort(i)}></Sort>
          </div>
       </div>
    );

@@ -11,16 +11,28 @@ const App = () => {
    const [items, setItems] = React.useState([]);
    const [loading, isLoading] = React.useState(true);
 
+   //! при кліку на любу категорію вона стає в позицію вибраної категорії
+   const [categoryId, setCategoryId] = React.useState();
+   //_________________________________________________________
+   const [sortType, setSortType] = React.useState({
+      name: 'Популярності',
+      sortProperty: 'raiting',
+   });
+
    React.useEffect(() => {
-      fetch('https://64ad45e0b470006a5ec5abab.mockapi.io/items')
+      isLoading(true);
+      fetch(
+         `https://64ad45e0b470006a5ec5abab.mockapi.io/items?${
+            categoryId > 0 ? `category=${categoryId}` : ''
+         }&sortBy=${sortType.sortProperty}&order=desc`,
+      )
          .then((res) => res.json())
          .then((arr) => {
             setItems(arr);
             isLoading(false);
          });
-   }, []); //залежність пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
-   //__________________________________________________________//
-
+   }, [categoryId, sortType]); //залежність пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
+   //
    return (
       <div className="wrapper">
          <div className="_container">
@@ -29,7 +41,16 @@ const App = () => {
                <Routes>
                   <Route
                      path="/"
-                     element={<MainContent items={items} isLoading={loading} />}
+                     element={
+                        <MainContent
+                           items={items}
+                           isLoading={loading}
+                           value={categoryId}
+                           onClickCategory={(id) => setCategoryId(id)}
+                           valueSort={sortType}
+                           onChangeSort={(id) => setSortType(id)}
+                        />
+                     }
                   ></Route>
                   <Route path="*" element={<NotFound />}></Route>
                </Routes>
