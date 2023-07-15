@@ -4,8 +4,8 @@ import Sort from '../Sort/Sort';
 
 const Selection = (props) => {
    const categories = ['Всі', "М'ясні", 'Гриль', 'Гострі', 'Сирні'];
-   const valueSort = props.valueSort
-   const onChangeSort = props.onChangeSort
+   const valueSort = props.valueSort;
+   const onChangeSort = props.onChangeSort;
    return (
       <div className={style.flex_contain}>
          <ul>

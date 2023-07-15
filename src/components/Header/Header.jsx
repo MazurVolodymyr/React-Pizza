@@ -1,6 +1,7 @@
 import style from './Header.module.scss';
 import { Link } from 'react-router-dom';
-const Header = () => {
+import Search from './Search/Search';
+const Header = ({searchValue, setSearchValue}) => {
    return (
       <div className={style.header}>
          <Link to={'/'}>
@@ -14,6 +15,7 @@ const Header = () => {
                </div>
             </div>
          </Link>
+         <Search searchValue={searchValue} setSearchValue={setSearchValue}></Search>
          <Link to={'*'}>
             <div className={style.header__right}>
                <div className={style.header__right_price}>320 грн</div>

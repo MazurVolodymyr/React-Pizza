@@ -8,7 +8,6 @@ const Sort = (props) => {
       { name: 'Алфавіту', sortProperty: 'title' },
    ];
 
-
    const onClickListClose = (id) => {
       props.onChangeSort(id);
       setOpen(false);
@@ -26,7 +25,9 @@ const Sort = (props) => {
                      <li
                         key={id}
                         onClick={() => onClickListClose(val)}
-                        className={props.value.sortProperty === val.sortProperty ? style.active : ''}
+                        className={
+                           props.value.sortProperty === val.sortProperty ? style.active : ''
+                        }
                      >
                         {val.name}
                      </li>
