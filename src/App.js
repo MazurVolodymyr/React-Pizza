@@ -16,7 +16,7 @@ const App = () => {
             <Header searchValue={searchValue} setSearchValue={setSearchValue}></Header>
             <div className="_container_contain">
                <Routes>
-                  <Route path="/" element={<MainContent />}></Route>
+                  <Route path="/" element={<MainContent searchValue={ searchValue } />}></Route>
                   <Route path="*" element={<NotFound />}></Route>
                </Routes>
             </div>

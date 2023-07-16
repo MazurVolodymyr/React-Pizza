@@ -2,7 +2,8 @@ import Selection from '../components/SelectionOfPizza/Selection';
 import Cards from '../components/Body/Cards';
 import Skeleton from '../components/Body/Skeleton';
 import React from 'react';
-const MainContent = (props) => {
+const MainContent = ({ searchValue }) => {
+
    //! відправка запиту на сервер для отримання даних та логіка загрузки (якщо загрузилось показуємо піцу якщо ні то скелетон)
    const [items, setItems] = React.useState([]);
    const [loading, isLoading] = React.useState(true);
@@ -30,6 +31,25 @@ const MainContent = (props) => {
    }, [categoryId, sortType]); //залежність пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
    //
 
+   const skeleton = [...new Array(8)].map((_, index) => <Skeleton key={index} />); //в map нижнє _ слугує щоб JS не давав помилку так як ми створюємо фейкові дані в масиві
+   const pizzass = items.filter((obj) => {
+         if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
+            return true;
+         } else {
+            return false;
+         }
+      }).map((obj, id) => (
+         <Cards
+            key={id}
+            imageUrl={obj.imageUrl}
+            price={obj.price}
+            title={obj.title}
+            sizes={obj.sizes}
+            types={obj.types}
+         />
+      ));
+      
+
    return (
       <>
          <Selection
@@ -39,20 +59,7 @@ const MainContent = (props) => {
             onChangeSort={(id) => setSortType(id)}
          ></Selection>
          <h1 style={{ marginBottom: '45px' }}>Наша піца</h1>
-         <div className="body">
-            {loading
-               ? [...new Array(8)].map((_, index) => <Skeleton key={index} />) //в map нижнє _ слугує щоб JS не давав помилку так як ми створюємо фейкові дані в масиві
-               : items.map((obj, id) => (
-                    <Cards
-                       key={id}
-                       imageUrl={obj.imageUrl}
-                       price={obj.price}
-                       title={obj.title}
-                       sizes={obj.sizes}
-                       types={obj.types}
-                    />
-                 ))}
-         </div>
+         <div className="body">{loading ? skeleton : pizzass}</div>
       </>
    );
 };
