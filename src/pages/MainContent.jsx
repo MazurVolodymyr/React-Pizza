@@ -27,6 +27,7 @@ const MainContent = ({ searchValue }) => {
          .then((arr) => {
             setItems(arr);
             isLoading(false);
+
          });
    }, [categoryId, sortType]); //залежність пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
    //
