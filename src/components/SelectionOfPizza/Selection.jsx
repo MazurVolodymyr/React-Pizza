@@ -2,9 +2,8 @@ import style from './Selection.module.scss';
 import React from 'react';
 import Sort from '../Sort/Sort';
 
-const Selection = ({valueSort, onChangeSort, onClickCategory, value}) => {
+const Selection = ({ onClickCategory, value }) => {
    const categories = ['Всі', "М'ясні", 'Гриль', 'Гострі', 'Сирні'];
-
 
    return (
       <div className={style.flex_contain}>
@@ -20,7 +19,7 @@ const Selection = ({valueSort, onChangeSort, onClickCategory, value}) => {
             ))}
          </ul>
          <div>
-            <Sort value={valueSort} onChangeSort={(i) => onChangeSort(i)}></Sort>
+            <Sort></Sort>
          </div>
       </div>
    );

@@ -8,7 +8,7 @@ import NotFound from './pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
-   const [searchValue, setSearchValue] = React.useState();
+   const [searchValue, setSearchValue] = React.useState([]);
 
    return (
       <div className="wrapper">
