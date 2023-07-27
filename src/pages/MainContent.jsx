@@ -33,7 +33,7 @@ const MainContent = ({ searchValue }) => {
             setItems(response.data);
             isLoading(false);
          });
-   }, [categoryId, sortType]); //залежність пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
+   }, [categoryId, sortType]); //залежність, пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
    //
 
    const skeleton = [...new Array(8)].map((_, index) => <Skeleton key={index} />); //в map нижнє _ слугує щоб JS не давав помилку так як ми створюємо фейкові дані в масиві

@@ -2,28 +2,38 @@ import React from 'react';
 import style from './Search.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
-const Search = ({ searchValue, setSearchValue }) => {
+
+import debounce from 'lodash.debounce';
+const Search = ({ setSearchValue }) => {
    const inputRef = React.useRef();
 
-   const onClickClearFocus = () => {
-      setSearchValue('')
-      inputRef.current.focus();
-   };
-   console.log(inputRef);
+   const [value, setValue] = React.useState('')
+
+   const updateSearchValue = React.useCallback(
+      debounce((event)=>{
+         setSearchValue(event);
+      }, 300),
+      [],
+   )
+   const onChangeInput = (event) =>{
+      setValue(event.target.value)
+      updateSearchValue(event.target.value)
+   }
+
    return (
       <div className={style.search}>
          <input
             ref={inputRef}
-            value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
+            value={value}
+            onChange={onChangeInput}
             type="text"
             placeholder="Пошук"
          />
-         {searchValue ? (
+         {value ? (
             <FontAwesomeIcon
                icon={faXmark}
                style={{ marginLeft: '10px', cursor: 'pointer' }}
-               onClick={() => onClickClearFocus}
+               onClick={() => setValue('')}
             />
          ) : (
             <FontAwesomeIcon icon={faMagnifyingGlass} style={{ marginLeft: '10px' }} />
