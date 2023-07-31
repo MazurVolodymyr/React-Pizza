@@ -1,7 +1,10 @@
 import style from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import Search from './Search/Search';
-const Header = ({ setSearchValue}) => {
+import { useSelector } from 'react-redux';
+
+const Header = ({ setSearchValue }) => {
+   const { items, totalPrice } = useSelector((state) => state.cartSlice);
    return (
       <div className={style.header}>
          <Link to={'/'}>
@@ -16,9 +19,9 @@ const Header = ({ setSearchValue}) => {
             </div>
          </Link>
          <Search setSearchValue={setSearchValue}></Search>
-         <Link to={'*'}>
+         <Link to={'cart'}>
             <div className={style.header__right}>
-               <div className={style.header__right_price}>320 грн</div>
+               <div className={style.header__right_price}>{totalPrice} грн</div>
                <div className={style.header__right_cart}>
                   <div>
                      <img
@@ -27,7 +30,7 @@ const Header = ({ setSearchValue}) => {
                         style={{ marginRight: '8px' }}
                      />
                   </div>
-                  <div>3</div>
+                  <div>{items.length}</div>
                </div>
             </div>
          </Link>

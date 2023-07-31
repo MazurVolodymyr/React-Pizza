@@ -19,6 +19,8 @@ const Sort = () => {
       dispatch(setSort(obj));
       setOpen(false);
    };
+
+
    return (
       <div className={style.sortt}>
          <div className={style.sortt__label}>

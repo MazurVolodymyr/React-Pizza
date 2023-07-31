@@ -37,13 +37,14 @@ const MainContent = ({ searchValue }) => {
    }, [categoryId, sortType, searchValue]); //залежність, пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
    //
 
-   const navigate = useNavigate()
-   React.useEffect(()=>{
+   const navigate = useNavigate();
+   React.useEffect(() => {
       const queryString = QueryString.stringify({
-         sortProperty: sortType, categoryId
-      })
-      navigate(`?${queryString}`)
-   },[categoryId, sortType ])
+         sortProperty: sortType,
+         categoryId,
+      });
+      navigate(`?${queryString}`);
+   }, [categoryId, sortType]);
 
    const skeleton = [...new Array(8)].map((_, index) => <Skeleton key={index} />); //в map нижнє _ слугує щоб JS не давав помилку так як ми створюємо фейкові дані в масиві
    const pizzass = items
@@ -57,6 +58,7 @@ const MainContent = ({ searchValue }) => {
       .map((obj, id) => (
          <Cards
             key={id}
+            id={id}
             imageUrl={obj.imageUrl}
             price={obj.price}
             title={obj.title}
