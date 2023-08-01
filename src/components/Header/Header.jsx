@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Header = ({ setSearchValue }) => {
    const { items, totalPrice } = useSelector((state) => state.cartSlice);
+   const totalCount = items.reduce((sum, items) => sum + items.count, 0);
    return (
       <div className={style.header}>
          <Link to={'/'}>
@@ -30,7 +31,7 @@ const Header = ({ setSearchValue }) => {
                         style={{ marginRight: '8px' }}
                      />
                   </div>
-                  <div>{items.length}</div>
+                  <div>{totalCount}</div>
                </div>
             </div>
          </Link>

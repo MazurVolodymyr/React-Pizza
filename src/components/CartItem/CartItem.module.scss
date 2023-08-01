@@ -1,0 +1,45 @@
+.main {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin-bottom: 20px;
+   &__left,
+   &__center,
+   &__right {
+      display: flex;
+      align-items: center;
+   }
+   &__left{
+    width: 280px;
+   }
+   &__left_img {
+      margin-right: 20px;
+      img{
+        width: 80px;
+        height: 80px;
+      }
+   }
+   &__left_desc {
+      h2 {
+         margin-bottom: 10px;
+      }
+   }
+   &__center {
+      img {
+         cursor: pointer;
+      }
+   }
+   &__center_p {
+      margin: 0px 20px;
+      font-size: 18px;
+   }
+   &__right {
+      img {
+         cursor: pointer;
+      }
+   }
+   &__right_p {
+      margin: 0px 20px;
+      font-size: 18px;
+   }
+}

@@ -28,7 +28,7 @@ const Cards = ({imageUrl, price, title,sizes,types, id}) => {
          price,
          imageUrl,
          type: typeNames[selectPizzaRude] ,
-         size: selectPizzaSize,
+         size: sizes[selectPizzaSize],
       };
       dispatch(addItem(item))
       

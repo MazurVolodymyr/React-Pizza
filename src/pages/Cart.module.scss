@@ -1,5 +1,5 @@
 .container {
-   max-width: 800px;
+   max-width: 1000px;
    margin: 0 auto;
    &__head {
     margin-bottom: 30px;
@@ -20,6 +20,7 @@
    &__right {
       display: flex;
       align-items: center;
+      cursor: pointer;
       span {
          font-size: 16px;
          color: #b6b6b6;
@@ -29,7 +30,7 @@
       }
    }
    .body{
-    margin-bottom: 30px;
+    margin-bottom: 40px;
    }
    .footer{
     padding-bottom: 50px;
