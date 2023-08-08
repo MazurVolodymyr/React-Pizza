@@ -4,6 +4,8 @@ import s from './Cart.module.scss';
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem/CartItem';
 import { clearItems } from '../redux/slices/cartSlice';
+import EmptyCart from '../components/EmptyCart/EmptyCart';
+
 const Cart = () => {
    const dispatch = useDispatch();
    const { totalPrice, items } = useSelector((state) => state.cartSlice);
@@ -13,6 +15,12 @@ const Cart = () => {
       }
    };
    const totalCount = items.reduce((sum, items) => sum + items.count, 0);
+
+   if(!totalCount){
+      return <EmptyCart></EmptyCart>
+   }
+
+
    return (
       <div className={s.container}>
          <div className={s.container__head}>

@@ -1,6 +1,6 @@
 .header {
-   a{
-      color: inherit
+   a {
+      color: inherit;
    }
    display: flex;
    justify-content: space-between;
@@ -14,11 +14,14 @@
    }
    &__left_h2 {
       margin-bottom: 10px;
+      margin-right: 10px;
       font-size: 24px;
    }
    &__left_p {
       opacity: 0.9;
       font-size: 16px;
+      margin-bottom: 30px;
+      margin-right: 10px;
    }
    &__right {
       border-radius: 30px;

@@ -7,6 +7,7 @@ import QueryString from 'qs';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategoryId } from '../redux/slices/filterSlice';
+import cartSlice from '../redux/slices/cartSlice';
 const MainContent = ({ searchValue }) => {
    const categoryId = useSelector((state) => state.filterSlice.categoryId);
    const dispatch = useDispatch();
@@ -33,7 +34,9 @@ const MainContent = ({ searchValue }) => {
          .then((response) => {
             setItems(response.data);
             isLoading(false);
-         });
+         }).catch((err)=>{
+            console.log(err, 'axios');
+         })
    }, [categoryId, sortType, searchValue]); //залежність, пустий масив означає component DidMount (тобто компонент зроби запит лише один раз коли ти рендеришся перший раз)
    //
 
